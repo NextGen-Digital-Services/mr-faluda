@@ -1,0 +1,26 @@
+:root {
+  /* Solid Color Palette - No Gradients permitted */
+  --color-primary: #0E2A5E;        /* Royal Sapphire Blue */
+  --color-accent: #C9A227;         /* Deep Gold */
+  --color-neutral-bg: #FBF6EC;     /* Ivory Cream */
+  --color-white: #FFFFFF;          /* Pure White */
+  --color-text-dark: #1C1C1C;      /* Charcoal Ink */
+  --color-text-light: #FFFFFF;     /* White text on dark BG */
+  --color-maroon: #7A1930;         /* Deep Heritage Maroon */
+  --color-emerald: #1F6E43;        /* Emerald (Micro-accent) */
+  --color-border: #C9A227;         /* Accent gold for borders */
+
+  /* Typography */
+  --font-display: 'Fraunces', serif;
+  --font-body: 'Poppins', sans-serif;
+
+  /* Shadows - Solid shadow offsets (no blur-heavy glow) */
+  --shadow-flat-sm: 2px 2px 0px 0px rgba(14, 42, 94, 0.15);
+  --shadow-flat-md: 4px 4px 0px 0px rgba(14, 42, 94, 0.9);
+  --shadow-flat-gold: 4px 4px 0px 0px #C9A227;
+  --shadow-flat-gold-hover: 6px 6px 0px 0px #C9A227;
+  --shadow-flat-dark: 4px 4px 0px 0px #1C1C1C;
+
+  /* Transitions */
+  --transition-smooth: all 0.25s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}

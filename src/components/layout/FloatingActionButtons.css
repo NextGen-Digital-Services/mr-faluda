@@ -1,0 +1,89 @@
+.floating-buttons-container {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  z-index: 999;
+}
+
+.floating-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  position: relative;
+  transition: var(--transition-smooth);
+}
+
+.call-btn {
+  background-color: var(--color-accent);
+  color: var(--color-primary);
+  border: 2px solid var(--color-accent);
+  box-shadow: 4px 4px 0px 0px var(--color-primary);
+}
+
+.call-btn:hover {
+  transform: scale(1.05) translate(-2px, -2px);
+  box-shadow: 6px 6px 0px 0px var(--color-primary);
+}
+
+.whatsapp-btn {
+  background-color: #25d366; /* Standard WhatsApp green for recognition */
+  color: var(--color-white);
+  border: 2px solid #25d366;
+  box-shadow: 4px 4px 0px 0px var(--color-primary);
+}
+
+.whatsapp-btn:hover {
+  transform: scale(1.05) translate(-2px, -2px);
+  box-shadow: 6px 6px 0px 0px var(--color-primary);
+}
+
+/* Pulse Ring Animation */
+.pulse-ring {
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  right: -2px;
+  bottom: -2px;
+  border-radius: 50%;
+  opacity: 0.8;
+  animation: pulse-out 2s infinite ease-out;
+  pointer-events: none;
+}
+
+.bg-gold-pulse {
+  border: 2px solid var(--color-accent);
+}
+
+.bg-green-pulse {
+  border: 2px solid #25d366;
+}
+
+@keyframes pulse-out {
+  0% {
+    transform: scale(1);
+    opacity: 0.8;
+  }
+  100% {
+    transform: scale(1.4);
+    opacity: 0;
+  }
+}
+
+@media (max-width: 600px) {
+  .floating-buttons-container {
+    bottom: 20px;
+    right: 20px;
+    gap: 12px;
+  }
+  
+  .floating-btn {
+    width: 48px;
+    height: 48px;
+  }
+}

@@ -1,0 +1,317 @@
+/* 1. HERO HEADER */
+.menu-hero {
+  padding: 80px 0;
+  border-bottom: 3px solid var(--color-accent);
+}
+
+.menu-hero-text {
+  text-align: center;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.menu-title {
+  font-size: 52px;
+  color: var(--color-white);
+  margin-bottom: 15px;
+}
+
+.menu-subtitle {
+  font-family: var(--font-body);
+  font-size: 18px;
+  color: var(--color-accent);
+  font-weight: 500;
+}
+
+/* 2. REGULAR DESSERT LISTINGS */
+.menu-listings-section {
+  border-bottom: 2px solid var(--color-accent);
+}
+
+.menu-list-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 30px;
+}
+
+.menu-list-card {
+  background-color: var(--color-white);
+  border: 2px solid var(--color-accent);
+  padding: 30px;
+  box-shadow: var(--shadow-flat-md);
+  display: flex;
+  flex-direction: column;
+  transition: var(--transition-smooth);
+}
+
+.menu-list-card:hover {
+  transform: translate(-3px, -3px);
+  box-shadow: 6px 6px 0px 0px var(--color-primary);
+}
+
+.menu-list-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 15px;
+}
+
+.menu-item-details {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  text-align: left;
+}
+
+.menu-item-badge {
+  background-color: var(--color-primary);
+  color: var(--color-accent);
+  font-size: 10px;
+  font-weight: 700;
+  padding: 3px 8px;
+  border: 1px solid var(--color-accent);
+  margin-bottom: 6px;
+  letter-spacing: 1px;
+}
+
+.menu-item-title {
+  font-size: 22px;
+  color: var(--color-primary);
+}
+
+.menu-item-price-box {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+.price-from {
+  font-size: 11px;
+  color: #666;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.price-val {
+  font-family: var(--font-body);
+  font-size: 24px;
+  font-weight: 800;
+  color: var(--color-accent);
+}
+
+.menu-item-description {
+  font-size: 14px;
+  color: rgba(28, 28, 28, 0.85);
+  line-height: 1.5;
+  text-align: left;
+  margin-bottom: 20px;
+  flex-grow: 1;
+}
+
+.menu-item-image-wrapper {
+  width: 100%;
+  height: 180px;
+  overflow: hidden;
+  border: 2px solid var(--color-accent);
+  margin-bottom: 20px;
+}
+
+.menu-item-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.menu-item-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-top: 1px solid rgba(201, 162, 39, 0.2);
+  padding-top: 15px;
+}
+
+.menu-features-list {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 5px;
+}
+
+.feature-tick {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 12px;
+  font-weight: 500;
+  color: #555;
+}
+
+.menu-order-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background-color: var(--color-accent);
+  color: var(--color-primary);
+  font-weight: 600;
+  padding: 8px 16px;
+  font-size: 13px;
+  border: 1px solid var(--color-accent);
+  box-shadow: 2px 2px 0px 0px var(--color-primary);
+}
+
+.menu-order-btn:hover {
+  transform: translate(-1px, -1px);
+  box-shadow: 3px 3px 0px 0px var(--color-primary);
+  background-color: var(--color-primary);
+  color: var(--color-accent);
+}
+
+/* 3. GUILT-FREE SPECIAL SECTION */
+.bg-maroon {
+  background-color: var(--color-maroon) !important;
+}
+
+.menu-special-section {
+  border-bottom: none;
+}
+
+.special-item-hero-card {
+  background-color: var(--color-neutral-bg);
+  border: 3px solid var(--color-maroon);
+  box-shadow: var(--shadow-flat-md);
+  margin-top: 40px;
+  overflow: hidden;
+}
+
+.special-hero-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.3fr;
+  align-items: stretch;
+}
+
+.special-hero-image {
+  position: relative;
+  min-height: 350px;
+  border-right: 3px solid var(--color-maroon);
+}
+
+.special-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.special-badge-absolute {
+  position: absolute;
+  bottom: 20px;
+  left: 20px;
+  background-color: var(--color-emerald);
+  color: var(--color-white);
+  font-family: var(--font-body);
+  font-weight: 700;
+  font-size: 11px;
+  padding: 6px 14px;
+  border: 1px solid var(--color-emerald);
+  letter-spacing: 1px;
+  box-shadow: 3px 3px 0px 0px var(--color-white);
+}
+
+.special-hero-details {
+  padding: 40px;
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+}
+
+.special-item-tag {
+  background-color: var(--color-maroon);
+  color: var(--color-white);
+  font-weight: 600;
+  font-size: 11px;
+  padding: 4px 10px;
+  margin-bottom: 10px;
+  letter-spacing: 1px;
+}
+
+.special-item-title {
+  font-size: 34px;
+  color: var(--color-maroon);
+  margin-bottom: 15px;
+}
+
+.special-item-description {
+  font-size: 15px;
+  line-height: 1.7;
+  color: var(--color-text-dark);
+  margin-bottom: 25px;
+}
+
+.special-features-row {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-bottom: 30px;
+}
+
+.sp-feature {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: 600;
+  font-size: 14px;
+}
+
+.sp-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+}
+
+.special-cta-row {
+  display: flex;
+  align-items: center;
+  gap: 25px;
+  width: 100%;
+}
+
+.special-price-tag {
+  font-family: var(--font-body);
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--color-maroon);
+  border-bottom: 2px solid var(--color-maroon);
+}
+
+@media (max-width: 900px) {
+  .menu-title {
+    font-size: 38px;
+  }
+  
+  .special-hero-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .special-hero-image {
+    min-height: 250px;
+    border-right: none;
+    border-bottom: 3px solid var(--color-maroon);
+  }
+  
+  .special-hero-details {
+    padding: 30px 20px;
+  }
+  
+  .special-cta-row {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 15px;
+  }
+  
+  .special-cta-row a {
+    width: 100%;
+    justify-content: center;
+  }
+}
