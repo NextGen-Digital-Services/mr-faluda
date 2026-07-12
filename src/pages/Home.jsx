@@ -1,4 +1,4 @@
-import { ArrowRight, Phone, MapPin, ExternalLink, ShieldCheck, Heart } from 'lucide-react';
+import { ArrowRight, Phone, MapPin, ShieldCheck, Heart, Dessert, CupSoda, FlameKindling, IceCream, Sparkles, Candy } from 'lucide-react';
 import { FaWhatsapp, FaInstagram } from 'react-icons/fa6';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
@@ -10,7 +10,18 @@ import royalFaloodaImg from '../assets/royal_falooda.png';
 import blackJamunImg from '../assets/black_jamun_kulfi.png';
 import storefrontImg from '../assets/storefront.png';
 import AnimatedWrapper from '../components/common/AnimatedWrapper';
+import MarqueeTicker from '../components/common/MarqueeTicker';
 import './Home.css';
+
+// Icon mapping helper
+const IconMap = {
+  Dessert: Dessert,
+  CupSoda: CupSoda,
+  FlameKindling: FlameKindling,
+  IceCream: IceCream,
+  Sparkles: Sparkles,
+  Candy: Candy
+};
 
 export default function Home() {
   const jamunItem = SPECIAL_ITEMS[0];
@@ -27,11 +38,40 @@ export default function Home() {
     }
   };
 
+  // Background floating shapes drift animation
+  const bgDrift1 = {
+    animate: {
+      x: [0, 30, -20, 0],
+      y: [0, -40, 20, 0],
+      transition: {
+        duration: 12,
+        repeat: Infinity,
+        ease: "easeInOut"
+      }
+    }
+  };
+
+  const bgDrift2 = {
+    animate: {
+      x: [0, -25, 35, 0],
+      y: [0, 30, -30, 0],
+      transition: {
+        duration: 15,
+        repeat: Infinity,
+        ease: "easeInOut"
+      }
+    }
+  };
+
   return (
     <div className="home-page">
       
       {/* 1. HERO SECTION */}
       <section className="hero-section bg-sapphire">
+        {/* Decorative Floating Circles in Background */}
+        <motion.div className="floating-bg-circle circle-1" variants={bgDrift1} animate="animate" />
+        <motion.div className="floating-bg-circle circle-2" variants={bgDrift2} animate="animate" />
+
         <div className="container hero-grid">
           
           <motion.div 
@@ -77,6 +117,9 @@ export default function Home() {
         </div>
       </section>
 
+      {/* INFINITE MARQUEE TICKER */}
+      <MarqueeTicker speed={20} />
+
       {/* 2. BRAND INTRO STRIP */}
       <section className="brand-intro-strip bg-cream">
         <div className="container intro-container">
@@ -99,7 +142,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* 3. FEATURED MENU CATEGORIES */}
+      {/* 3. FEATURED MENU CATEGORIES (WITH SOLID CARD SYSTEM) */}
       <section className="bg-white featured-menu-section">
         <div className="container">
           <div className="section-header-center">
@@ -109,37 +152,60 @@ export default function Home() {
           </div>
 
           <div className="categories-grid">
-            {MENU_CATEGORIES.map((category, index) => (
-              <AnimatedWrapper key={category.id} delay={index * 0.1} className="category-card">
-                <div className="category-tag-badge">{category.tag}</div>
-                <div className="category-image-placeholder">
-                  {category.image ? (
-                    <img src={category.image} alt={category.title} className="cat-img" />
-                  ) : (
-                    <div className="no-cat-img">
-                      <span>{category.title[0]}</span>
+            {MENU_CATEGORIES.map((category, index) => {
+              const IconComponent = IconMap[category.iconName] || Sparkles;
+              return (
+                <AnimatedWrapper key={category.id} delay={index * 0.08} className="category-card-wrapper">
+                  <div 
+                    className="category-card"
+                    style={{ 
+                      borderTop: `6px solid ${category.accentColor}`,
+                      '--accent-color': category.accentColor
+                    }}
+                  >
+                    <div className="category-tag-badge" style={{ backgroundColor: category.accentColor }}>{category.tag}</div>
+                    
+                    <div className="category-image-container-overflow">
+                      {category.image ? (
+                        <img src={category.image} alt={category.title} className="cat-img" />
+                      ) : (
+                        <div className="no-cat-img-bg" style={{ backgroundColor: category.accentColor }}>
+                          <span>{category.title[0]}</span>
+                        </div>
+                      )}
+                      
+                      {/* Price Ribbon */}
+                      <div className="price-ribbon-badge">
+                        Starting @ ₹{category.startingPrice}
+                      </div>
+
+                      {/* Overlapping Icon Badge */}
+                      <div className="overlapping-icon-badge" style={{ backgroundColor: category.accentColor }}>
+                        <IconComponent size={20} className="text-white" />
+                      </div>
                     </div>
-                  )}
-                </div>
-                <div className="category-card-body">
-                  <h3 className="category-card-title">{category.title}</h3>
-                  <p className="category-card-desc">{category.description}</p>
-                  <div className="category-card-footer">
-                    <span className="price-label">Starts at <strong className="text-gold">₹{category.startingPrice}</strong></span>
-                    <Link to="/menu" className="category-btn">
-                      <span>View</span>
-                      <ArrowRight size={16} />
-                    </Link>
+
+                    <div className="category-card-body">
+                      <h3 className="category-card-title">{category.title}</h3>
+                      <p className="category-card-desc">{category.description}</p>
+                      <div className="category-card-footer">
+                        <Link to="/menu" className="category-btn" style={{ '--accent-color': category.accentColor }}>
+                          <span>View Menu</span>
+                          <ArrowRight size={16} />
+                        </Link>
+                      </div>
+                    </div>
                   </div>
-                </div>
-              </AnimatedWrapper>
-            ))}
+                </AnimatedWrapper>
+              );
+            })}
           </div>
         </div>
       </section>
 
       {/* 4. SIGNATURE PRODUCT SPOTLIGHT */}
       <section className="bg-sapphire spotlight-section">
+        <motion.div className="floating-bg-circle circle-3" variants={bgDrift1} animate="animate" />
         <div className="container spotlight-grid">
           
           <div className="spotlight-image-side">
@@ -212,7 +278,13 @@ export default function Home() {
 
           <div className="guilt-free-image-side">
             <AnimatedWrapper delay={0.2} yOffset={50}>
-              <div className="guilt-free-image-frame">
+              <div 
+                className="guilt-free-image-frame"
+                style={{ 
+                  border: `4px solid ${jamunItem.accentColor}`,
+                  boxShadow: `10px 10px 0px 0px ${jamunItem.accentColor}`
+                }}
+              >
                 <img src={jamunItem.image} alt={jamunItem.title} className="guilt-free-img" />
               </div>
             </AnimatedWrapper>
@@ -298,8 +370,13 @@ export default function Home() {
 
           <div className="visit-teaser-image">
             <AnimatedWrapper delay={0.2}>
+              {/* Teaser storefront frame with flat Sapphire overlay */}
               <div className="teaser-storefront-frame">
-                <img src={storefrontImg} alt="Storefront Lounge View" className="teaser-storefront-img" />
+                <div className="teaser-image-overlay-wrapper">
+                  <img src={storefrontImg} alt="Storefront Lounge View" className="teaser-storefront-img" />
+                  {/* FLAT SOLID TINT OVERLAY */}
+                  <div className="flat-image-overlay"></div>
+                </div>
               </div>
             </AnimatedWrapper>
           </div>

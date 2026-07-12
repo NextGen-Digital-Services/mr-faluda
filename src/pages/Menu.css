@@ -28,25 +28,83 @@
   border-bottom: 2px solid var(--color-accent);
 }
 
+/* Dynamic category tabs */
+.menu-tabs-container {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  margin-bottom: 45px;
+  flex-wrap: wrap;
+}
+
+.menu-tab-btn {
+  position: relative;
+  background-color: var(--color-white);
+  border: 2px solid var(--color-accent);
+  padding: 12px 28px;
+  font-family: var(--font-body);
+  font-weight: 700;
+  font-size: 14px;
+  cursor: pointer;
+  color: var(--color-primary);
+  box-shadow: 3px 3px 0px 0px var(--color-primary);
+  transition: var(--transition-smooth);
+  overflow: hidden;
+}
+
+.menu-tab-btn:hover {
+  transform: translate(-1px, -1px);
+  box-shadow: 4px 4px 0px 0px var(--color-primary);
+}
+
+.menu-tab-btn.active {
+  border-color: var(--color-primary);
+  box-shadow: 4px 4px 0px 0px var(--color-accent);
+  color: var(--color-white);
+}
+
+.active-tab-pill-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: var(--color-primary);
+  z-index: 1;
+}
+
+.tab-label-text {
+  position: relative;
+  z-index: 2;
+}
+
+/* Cards Grid */
 .menu-list-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-  gap: 30px;
+  gap: 35px;
+}
+
+.menu-card-wrapper {
+  perspective: 1000px;
 }
 
 .menu-list-card {
   background-color: var(--color-white);
-  border: 2px solid var(--color-accent);
+  border-radius: 18px;
+  border: 2px solid var(--accent-color);
   padding: 30px;
-  box-shadow: var(--shadow-flat-md);
+  box-shadow: 0 12px 24px rgba(28, 28, 28, 0.06);
   display: flex;
   flex-direction: column;
   transition: var(--transition-smooth);
+  height: 100%;
 }
 
 .menu-list-card:hover {
-  transform: translate(-3px, -3px);
-  box-shadow: 6px 6px 0px 0px var(--color-primary);
+  transform: translateY(-8px);
+  box-shadow: 0 16px 32px rgba(14, 42, 94, 0.16);
+  border-color: var(--color-accent);
 }
 
 .menu-list-header {
@@ -64,14 +122,14 @@
 }
 
 .menu-item-badge {
-  background-color: var(--color-primary);
-  color: var(--color-accent);
+  color: var(--color-white);
   font-size: 10px;
   font-weight: 700;
-  padding: 3px 8px;
-  border: 1px solid var(--color-accent);
-  margin-bottom: 6px;
+  padding: 3px 10px;
+  border-radius: 12px;
+  margin-bottom: 8px;
   letter-spacing: 1px;
+  text-transform: uppercase;
 }
 
 .menu-item-title {
@@ -112,21 +170,43 @@
   width: 100%;
   height: 180px;
   overflow: hidden;
-  border: 2px solid var(--color-accent);
-  margin-bottom: 20px;
+  border: 2px solid var(--accent-color);
+  margin-bottom: 24px;
+  position: relative;
 }
 
 .menu-item-img {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  transition: var(--transition-smooth);
+}
+
+.menu-list-card:hover .menu-item-img {
+  transform: scale(1.05);
+}
+
+/* Overlapping Icon Badge */
+.overlapping-icon-badge {
+  position: absolute;
+  bottom: -22px;
+  right: 20px;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid var(--color-white);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+  z-index: 3;
 }
 
 .menu-item-footer {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  border-top: 1px solid rgba(201, 162, 39, 0.2);
+  border-top: 1px solid rgba(28, 28, 28, 0.08);
   padding-top: 15px;
 }
 
@@ -150,20 +230,17 @@
   display: inline-flex;
   align-items: center;
   gap: 6px;
-  background-color: var(--color-accent);
-  color: var(--color-primary);
+  background-color: var(--color-primary);
+  color: var(--color-white);
   font-weight: 600;
-  padding: 8px 16px;
+  padding: 8px 18px;
+  border-radius: 6px;
   font-size: 13px;
-  border: 1px solid var(--color-accent);
-  box-shadow: 2px 2px 0px 0px var(--color-primary);
+  transition: var(--transition-smooth);
 }
 
 .menu-order-btn:hover {
-  transform: translate(-1px, -1px);
-  box-shadow: 3px 3px 0px 0px var(--color-primary);
-  background-color: var(--color-primary);
-  color: var(--color-accent);
+  background-color: var(--accent-color);
 }
 
 /* 3. GUILT-FREE SPECIAL SECTION */

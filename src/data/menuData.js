@@ -9,35 +9,45 @@ export const MENU_CATEGORIES = [
     description: 'A Classic Delight',
     startingPrice: 149,
     image: royalFaloodaImg,
-    tag: 'Signature'
+    tag: 'Signature',
+    accentColor: '#D96A2B', // Saffron Terracotta
+    iconName: 'Dessert'
   },
   {
     id: 'thick-shakes',
     title: 'Thick Shakes',
     description: 'Rich & Creamy',
     startingPrice: 99,
-    tag: 'Indulgent'
+    tag: 'Indulgent',
+    accentColor: '#D96A2B', // Saffron Terracotta
+    iconName: 'CupSoda'
   },
   {
     id: 'premium-scoops',
     title: 'Premium Scoops',
     description: "Flavors You'll Love",
     startingPrice: 80,
-    tag: 'Classic'
+    tag: 'Classic',
+    accentColor: '#1F6E43', // Emerald Green
+    iconName: 'FlameKindling'
   },
   {
     id: 'premium-kulfi',
     title: 'Premium Kulfi',
     description: 'Traditional Indian Goodness',
     startingPrice: 75,
-    tag: 'Traditional'
+    tag: 'Traditional',
+    accentColor: '#7A1930', // Heritage Maroon
+    iconName: 'IceCream'
   },
   {
     id: 'classic-kulfi',
     title: 'The Classic Kulfi',
     description: 'Lighter & Refreshing, Served in a Bowl',
     startingPrice: 60,
-    tag: 'Refreshing'
+    tag: 'Refreshing',
+    accentColor: '#7A1930', // Heritage Maroon
+    iconName: 'Sparkles'
   },
   {
     id: 'kulfi-pop',
@@ -45,7 +55,9 @@ export const MENU_CATEGORIES = [
     description: 'Premium • Organic • Delicious',
     startingPrice: 30,
     image: kulfiPopImg,
-    tag: 'Organic'
+    tag: 'Organic',
+    accentColor: '#5B2A6E', // Plum Berry
+    iconName: 'Candy'
   }
 ];
 
@@ -57,6 +69,8 @@ export const SPECIAL_ITEMS = [
     priceLabel: 'Specialty Range',
     image: blackJamunImg,
     tag: 'Guilt-Free',
-    subBadge: 'No Added Sugar'
+    subBadge: 'No Added Sugar',
+    accentColor: '#5B2A6E', // Plum Berry
+    iconName: 'Sparkles'
   }
 ];

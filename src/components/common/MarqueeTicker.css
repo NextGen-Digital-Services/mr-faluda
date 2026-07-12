@@ -1,0 +1,34 @@
+.marquee-strip {
+  width: 100%;
+  overflow: hidden;
+  white-space: nowrap;
+  display: flex;
+  align-items: center;
+  height: 48px;
+  border-bottom: 2px solid var(--color-primary);
+  z-index: 10;
+  position: relative;
+}
+
+.marquee-content {
+  display: inline-block;
+  padding-left: 0;
+  animation: marquee-scroll infinite linear;
+}
+
+.marquee-content span {
+  font-family: var(--font-body);
+  font-weight: 800;
+  font-size: 14px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+@keyframes marquee-scroll {
+  0% {
+    transform: translate3d(0, 0, 0);
+  }
+  100% {
+    transform: translate3d(-50%, 0, 0);
+  }
+}
